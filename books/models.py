@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Publisher(models.Model):
@@ -69,3 +70,29 @@ class BookGenre(models.Model):
     class Meta:
         db_table = 'book_genres'
         unique_together = ('book', 'genre')
+
+class CartItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cart_items')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        unique_together = ('user', 'book')
+
+    def __str__(self):
+        return f'{self.quantity} x {self.book.title} (User: {self.user.email})'
+    
+class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Order #{self.id} by {self.user.email}'
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.quantity} x {self.book.title} (Order #{self.order.id})'
