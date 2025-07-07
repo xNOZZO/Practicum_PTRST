@@ -86,6 +86,7 @@ DATABASES = {
         'PASSWORD': '12345678',
         'HOST': 'localhost',
         'PORT': '5432',
+        'client_encoding': 'UTF8'
     }
 }
 
@@ -142,3 +143,6 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication'],
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
