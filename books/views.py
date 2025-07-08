@@ -9,6 +9,7 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['genres']
     search_fields = ['title', 'authors__name']
     ordering_fields = ['title', 'price', 'publication_year', 'rating']
     ordering = ['-rating']
@@ -34,6 +35,19 @@ class CartItemViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+    def get_paginated_response(self, data):
+        total_price = sum(
+            item.book.price * item.quantity
+            for item in self.get_queryset()
+        )
+        return Response({
+            'count': self.paginator.page.paginator.count,
+            'next': self.paginator.get_next_link(),
+            'previous': self.paginator.get_previous_link(),
+            'results': data,
+            'total_price': total_price
+        })
 
     @action(detail=False, methods=['post'])
     def checkout(self, request):
