@@ -1,0 +1,128 @@
+.cart-container {
+  padding: 2rem;
+  color: white;
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.cart-empty {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  background: #1f2937;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem; /* ← Adds vertical space between book cards */
+}
+
+
+.cart-item img {
+  width: 96px;
+  height: auto;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-details h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.cart-item-details p {
+  color: #bbb;
+  margin-bottom: 0.75rem;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-controls input {
+  width: 60px;
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.cart-controls button {
+  padding: 0.4rem 0.75rem;
+  background-color: #111827;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.cart-controls button:hover {
+  background-color: #0a0f18;
+}
+
+.cart-banner-full {
+  width: auto;
+  margin-left: 1rem;
+  background: linear-gradient(135deg, #1a202c, #2d3748);
+  padding-block: 2rem;
+  display: flex;
+}
+
+.cart-banner {
+  margin-inline: auto;
+  max-width: 960px;
+  width: 100%;
+  background: none;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-banner-text {
+  flex: 1;
+}
+
+.cart-banner-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cart-banner-text p {
+  font-size: 1.1rem;
+  color: #cbd5e0;
+}
+
+.cart-banner-image {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .cart-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-banner-image {
+    margin-top: 1rem;
+  }
+}
