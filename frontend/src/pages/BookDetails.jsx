@@ -44,7 +44,15 @@ const BookDetails = () => {
           <h1 className="book-title">{book.title}</h1>
           <p className="book-author">Автор: {book.authors.map(a => a.name).join(', ')}</p>
           <p className="book-description">{book.description}</p>
-          <p className="book-cart-qty">В корзине {inCartQty}</p>
+
+          <div className="book-meta">
+            <p><strong>Год выпуска:</strong> {book.publication_year}</p>
+            <p><strong>Количество страниц:</strong> {book.page_number}</p>
+            <p><strong>Рейтинг:</strong> {book.rating}</p>
+          </div>
+
+          <p className="book-cart-qty">В корзине: {inCartQty}</p>
+
           <button
             onClick={() => addToCart(book, 1)}
             className="add-to-cart-button"

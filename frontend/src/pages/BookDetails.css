@@ -79,3 +79,13 @@
   color: white;
   padding: 1.5rem;
 }
+
+.book-meta {
+  color: #bbb;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.book-meta p {
+  margin: 0.25rem 0;
+}

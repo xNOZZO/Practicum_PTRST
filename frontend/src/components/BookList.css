@@ -43,13 +43,84 @@
   gap: 1rem;
 }
 
+/* ----------------------------- */
+/* Поисковая строка              */
+/* ----------------------------- */
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background-color: 0a0e16;
+}
+
+.search-filter label {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.search-filter input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #1f2937;
+  background-color: #0a0e16;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-filter input:focus {
+  outline: none;
+  border-color: #1f2937;
+  box-shadow: 0 0 0 3px #1f2937;
+}
+
+/* ----------------------------- */
+/* Стили для фильтра жанров      */
+/* ----------------------------- */
+.genre-filter {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.genre-filter label {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.genre-filter select {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #1f2937;
+  border-radius: 8px;
+  background-color: #0a0e16;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23333' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.genre-filter select:focus {
+  outline: none;
+  border-color: #1f2937;
+  box-shadow: 0 0 0 3px #1f2937;
+}
+
+/* ----------------------------- */
+/* Пагинация                     */
+/* ----------------------------- */
 .pagination-controls {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 1.5rem;
   gap: 1rem;
-  color: #ddd;
+  color: #a5a5a5;
 }
 
 .page-btn {
@@ -58,6 +129,10 @@
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.2s;
+}
+
+.page-btn:focus {
+  outline: none;
 }
 
 .page-btn:disabled {
@@ -76,17 +151,5 @@
 }
 
 .page-indicator {
-  font-size: 1rem;
-}
-
-.genre-filter {
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-}
-.genre-filter select {
-  padding: 5px 10px;
   font-size: 1rem;
 }
