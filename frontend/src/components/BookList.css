@@ -1,0 +1,92 @@
+.booklist-container {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.intro-box {
+  width: 100%;
+  background-color: #1f2937;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.intro-text {
+  max-width: 60%;
+  color: #ddd;
+}
+
+.intro-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.intro-image img {
+  max-width: 250px;
+  border-radius: 8px;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  color: #ddd;
+}
+
+.page-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.page-btn img {
+  width: 24px;
+  height: 24px;
+  transform: rotate(0deg);
+}
+
+.page-btn:nth-of-type(2) img {
+  transform: scaleX(-1);
+}
+
+.page-indicator {
+  font-size: 1rem;
+}
+
+.genre-filter {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+.genre-filter select {
+  padding: 5px 10px;
+  font-size: 1rem;
+}

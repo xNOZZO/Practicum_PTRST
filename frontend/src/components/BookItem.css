@@ -1,0 +1,102 @@
+.add-to-cart {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  padding-right: 6px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart img {
+  width: 24px;
+  height: 24px;
+}
+
+.add-to-cart:hover {
+  background-color: #0000005e;
+}
+
+.book-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.book-link:hover {
+  color: rgba(255, 255, 255, 0.541)
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.book-item {
+  width: 240px;
+  padding: 1rem;
+  background: #1f2937;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-content {
+  flex-grow: 1;
+}
+
+.quantity-control {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.quantity-control input {
+  width: 50px;
+  padding: 0.3rem;
+}
+
+.quantity-control button {
+  padding: 0.3rem 0.6rem;
+  background-color: #1f2937;
+  color: white;
+  border: #1f2937;
+  border-color: 1f2937;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quantity-control button:focus {
+  outline: none;
+}
+
+.quantity-control button:hover {
+  background-color: #111827;
+}
+
+.book-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.genre-bubble {
+  background-color: #374151;
+  /* Tailwind's gray-700 */
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
