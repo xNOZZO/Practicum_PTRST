@@ -15,11 +15,14 @@
 }
 
 .book-image {
-  width: 200px;
-  height: auto;
+  width: 500px;
+  height: 600px;
   border-radius: 0.375rem;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #2a2a3b;
+  padding: 0.5rem;
 }
+
 
 .book-image-placeholder {
   width: 200px;
@@ -88,4 +91,11 @@
 }
 .book-meta p {
   margin: 0.25rem 0;
+}
+
+.book-price {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #fffb00;
+  margin-bottom: 1rem;
 }

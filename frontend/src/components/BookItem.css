@@ -94,9 +94,15 @@
 
 .genre-bubble {
   background-color: #374151;
-  /* Tailwind's gray-700 */
   color: white;
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 0.75rem;
+}
+
+.book-price {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #fffb00;
 }
