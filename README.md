@@ -1,15 +1,20 @@
 # Practicum_PTRST
 
 Для работы бэкенда нужно установить:
-
-    python
-    django
-    psycopg2-binary
+    
+    asgiref
+    Django
     django-cors-headers
-    djangorestframework
     django-filter
-    djangorestframework-simplejwt:
+    djangorestframework=
+    djangorestframework_simplejwt
+    pillow
+    psycopg2-binary
+    PyJWT
+    python-dotenv
+    sqlparse
+    tzdata
 
 Командна для установки:
 
-pip install django psycopg2-binary django-cors-headers djangorestframework django-filter djangorestframework-simplejwt
+pip install -r requirements.txt
