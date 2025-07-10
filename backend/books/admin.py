@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 
 from .models import (
     Book, Author, Genre,
@@ -36,8 +37,8 @@ class BookAdmin(admin.ModelAdmin):
     readonly_fields = ['cover_image_preview']
 
     def cover_image_preview(self, obj):
-        if obj.cover_image_url:
-            return f'<img src="{obj.cover_image_url}" style="max-height: 200px;" />'
+        if obj.cover_image:
+            return mark_safe(f'<img src="{obj.cover_image.url}" style="max-height: 200px;" />')
         return "(No Image)"
     cover_image_preview.allow_tags = True
     cover_image_preview.short_description = "Cover Preview"

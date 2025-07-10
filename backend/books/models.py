@@ -36,7 +36,7 @@ class Book(models.Model):
     publication_year = models.PositiveIntegerField()
     publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null=True, related_name='books')
     isbn = models.CharField(max_length=20, unique=True)
-    cover_image_url = models.URLField(max_length=512, blank=True, null=True)
+    cover_image = models.ImageField(upload_to='covers/', blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     authors = models.ManyToManyField(Author, through='BookAuthor', related_name='books')
     genres = models.ManyToManyField(Genre, through='BookGenre', related_name='books')
