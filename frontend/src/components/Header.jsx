@@ -11,7 +11,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/'); // после выхода — на главную
+    navigate('/');
   };
 
   return (

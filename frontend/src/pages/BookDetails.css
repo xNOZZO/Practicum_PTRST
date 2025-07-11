@@ -23,7 +23,6 @@
   padding: 0.5rem;
 }
 
-
 .book-image-placeholder {
   width: 200px;
   height: 300px;
@@ -89,6 +88,7 @@
   line-height: 1.6;
   margin-bottom: 1rem;
 }
+
 .book-meta p {
   margin: 0.25rem 0;
 }

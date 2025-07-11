@@ -10,14 +10,11 @@ const API_BASE = 'http://127.0.0.1:8000';
 export const CartProvider = ({ children }) => {
   const { authFetch, access } = useAuth();
   const [cart, setCart] = useState([]);
-
-  // загрузка
   const fetchCart = async () => {
     if (!access) return setCart([]);
     const res = await authFetch(`${API_BASE}/api/cart/`);
     if (res.ok) {
       const { results } = await res.json();
-      // 🔧 сортировка по ID, чтобы не перескакивали
       setCart((results || []).sort((a, b) => a.id - b.id));
     }
   };
@@ -26,7 +23,6 @@ export const CartProvider = ({ children }) => {
     fetchCart();
   }, [access]);
 
-  // добавить или увеличить
   const addToCart = async (book, qty = 1) => {
     if (!access) return;
     const existing = cart.find(item => item.book === book.id);

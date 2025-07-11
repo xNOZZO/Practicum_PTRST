@@ -23,7 +23,6 @@ export default function BookDetails() {
   if (loading) return <div>Загрузка...</div>;
   if (!book) return <div>Книга не найдена.</div>;
 
-  // Ищем позицию по integer
   const inCartQty = cart.find(item => item.book === book.id)?.quantity || 0;
 
   return (

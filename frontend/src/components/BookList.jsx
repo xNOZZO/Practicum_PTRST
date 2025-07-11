@@ -19,7 +19,6 @@ const BookList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Загрузка жанров
   useEffect(() => {
     fetch(GENRES_API)
       .then(res => res.json())
@@ -33,7 +32,6 @@ const BookList = () => {
       .catch(err => console.error("Ошибка загрузки жанров:", err));
   }, []);
 
-  // Строим URL на основе фильтров, поиска и страницы
   const buildUrl = () => {
     const url = new URL(BASE_API);
     if (selectedGenre !== null) {
@@ -48,7 +46,6 @@ const BookList = () => {
     return url.toString();
   };
 
-  // Загрузка книг при изменении фильтра, страницы или поискового запроса
   useEffect(() => {
     const url = buildUrl();
     fetch(url)
@@ -65,7 +62,6 @@ const BookList = () => {
       .catch(err => console.error('Fetch error:', err));
   }, [selectedGenre, currentPage, searchTerm]);
 
-  // Пагинация
   const goNext = () => {
     if (nextUrl) setCurrentPage(prev => prev + 1);
   };
@@ -73,7 +69,6 @@ const BookList = () => {
     if (prevUrl && currentPage > 1) setCurrentPage(prev => prev - 1);
   };
 
-  // Изменение жанра
   const handleGenreChange = (e) => {
     const val = e.target.value;
     setSelectedGenre(val === 'all' ? null : Number(val));
@@ -82,7 +77,6 @@ const BookList = () => {
 
   return (
     <div className="booklist-container">
-      {/* Вступительный баннер */}
       <div className="intro-box">
         <div className="intro-text">
           <h1>Добро пожаловать</h1>
@@ -108,7 +102,6 @@ const BookList = () => {
         />
       </div>
 
-      {/* Фильтр по жанру */}
       <div className="genre-filter">
         <label htmlFor="genre-select">Фильтр по жанру: </label>
         <select
@@ -125,7 +118,6 @@ const BookList = () => {
         </select>
       </div>
 
-      {/* Список книг */}
       <div className="book-list">
         {books.length > 0 ? (
           books.map(book => (
@@ -144,7 +136,6 @@ const BookList = () => {
         )}
       </div>
 
-      {/* Пагинация */}
       <div className="pagination-controls">
         <button onClick={goPrev} disabled={!prevUrl} className="page-btn">
           <img src={backNavButton} alt="Prev" />

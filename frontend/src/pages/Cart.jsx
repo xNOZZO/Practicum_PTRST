@@ -22,7 +22,6 @@ const Cart = () => {
 
   return (
     <>
-      {/* 🌟 Full-width banner */}
       <div className="cart-banner-full">
         <div className="cart-banner">
           <div className="cart-banner-text">
@@ -37,7 +36,6 @@ const Cart = () => {
         </div>
       </div>
 
-      {/* 🧮 Main container */}
       <div className="cart-container">
         {cart.length === 0 ? (
           <p className="cart-empty">Тут пусто!</p>

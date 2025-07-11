@@ -16,7 +16,6 @@ import { AuthProvider, useAuth } from './auth/useAuth.jsx';
 
 function PublicRoute({ children }) {
   const { access } = useAuth();
-  // если уже залогинены — не даём идти на /login или /register
   return access ? <Navigate to="/cart" replace /> : children;
 }
 
@@ -60,8 +59,6 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
-
-        {/* если ни один маршрут не подошёл */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
@@ -71,13 +68,13 @@ function AppContent() {
 export default function App() {
   return (
     <div className="App">
-<AuthProvider>
-  <CartProvider>
-    <Router>
-      <AppContent />
-    </Router>
-  </CartProvider>
-</AuthProvider>
+      <AuthProvider>
+        <CartProvider>
+          <Router>
+            <AppContent />
+          </Router>
+        </CartProvider>
+      </AuthProvider>
     </div>
   );
 }

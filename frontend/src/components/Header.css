@@ -13,10 +13,8 @@
     left: 0;
     z-index: 10;
 
-    /* Add this for the shadow */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   }
-
 
   .header-brand {
     display: flex;
@@ -50,23 +48,21 @@
     text-decoration: underline;
   }
 
-  /* В конец Header.css */
+  .header-authenticated {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-.header-authenticated {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+  .logout-button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
 
-.logout-button {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-.logout-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+  .logout-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }

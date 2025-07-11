@@ -13,7 +13,6 @@ const BookItem = ({ book }) => {
     ? new URL(`../assets/images/${book.image}`, import.meta.url).href
     : null;
 
-  // Проверяем по item.book.id
   const isInCart = cart.some(item => item.book.id === book.id);
 
   return (
