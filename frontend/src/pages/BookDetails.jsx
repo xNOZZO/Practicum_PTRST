@@ -1,68 +1,43 @@
+// src/pages/BookDetails.jsx
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useEffect, useState } from 'react';
+import placeholder from '../assets/images/placeholder.png';
 import './BookDetails.css';
 
-const BookDetails = () => {
+export default function BookDetails() {
   const { id } = useParams();
   const { cart, addToCart } = useCart();
-
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`http://127.0.0.1:8000/api/books/${id}/`)
-      .then((res) => res.json())
-      .then((data) => {
-        setBook(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+      .then(r => r.json())
+      .then(d => setBook(d))
+      .catch(() => setBook(null))
+      .finally(() => setLoading(false));
   }, [id]);
 
   if (loading) return <div>Загрузка...</div>;
-  if (!book) return <div className="book-not-found">Книга не найдена.</div>;
+  if (!book) return <div>Книга не найдена.</div>;
 
-  const imageSrc = book.cover_image_url
-    ? new URL(`../assets/images/${book.cover_image_url.split('/').pop()}`, import.meta.url).href
-    : null;
-
-  const inCartQty = cart.find(item => item.id === book.id)?.quantity || 0;
+  const inCartQty = cart.find(item => item.book === book.id)?.quantity || 0;
 
   return (
     <div className="book-details-wrapper">
-      <div className="book-details-container">
-        {imageSrc ? (
-          <img src={imageSrc} alt={book.title} className="book-image" />
-        ) : (
-          <div className="book-image-placeholder">Нет картинки</div>
-        )}
-
-        <div className="book-info">
-          <h1 className="book-title">{book.title}</h1>
-          <p className="book-author">Автор: {book.authors.map(a => a.name).join(', ')}</p>
-          <p className="book-description">{book.description}</p>
-
-          <div className="book-meta">
-            <p><strong>Год выпуска:</strong> {book.publication_year}</p>
-            <p><strong>Количество страниц:</strong> {book.page_number}</p>
-            <p><strong>Рейтинг:</strong> {book.rating}</p>
-          </div>
-
-          <p className="book-cart-qty">В корзине: {inCartQty}</p>
-
-          <button
-            onClick={() => addToCart(book, 1)}
-            className="add-to-cart-button"
-          >
-            Добавить в корзину
-          </button>
-        </div>
+      <img src={placeholder} alt="" className="book-image" />
+      <div className="book-info">
+        <h1>{book.title}</h1>
+        <p>Автор: {book.authors?.map(a => a.name).join(', ')}</p>
+        <p>{book.description}</p>
+        <p>Цена: {book.price} ₽</p>
+        <p>В корзине: {inCartQty}</p>
+        <button onClick={() => addToCart(book, 1)}>
+          Добавить в корзину
+        </button>
       </div>
     </div>
   );
-};
-
-export default BookDetails;
+}

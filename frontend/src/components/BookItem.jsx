@@ -1,3 +1,4 @@
+// src/components/BookItem.jsx
 import './BookItem.css';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
@@ -12,7 +13,7 @@ const BookItem = ({ book }) => {
     ? new URL(`../assets/images/${book.image}`, import.meta.url).href
     : null;
 
-  const isInCart = cart.some(item => item.id === book.id);
+  const isInCart = cart.some(item => item.book.id === book.id);
 
   return (
     <div className="book-item">
@@ -21,10 +22,10 @@ const BookItem = ({ book }) => {
         <div className="book-content">
           <h3>{book.title}</h3>
           <p>by {book.author}</p>
-
+          <p className="book-price">Цена: {book.price} ₽</p>
           <div className="book-genres">
-            {book.genres?.map((genre, index) => (
-              <span key={index} className="genre-bubble">{genre}</span>
+            {book.genres?.map((g, i) => (
+              <span key={i} className="genre-bubble">{g}</span>
             ))}
           </div>
         </div>
@@ -38,14 +39,16 @@ const BookItem = ({ book }) => {
             value={quantity}
             onChange={e => setQuantity(Number(e.target.value))}
           />
-         <button onClick={() => {
-           addToCart(book, quantity);
-           setShowQuantityInput(false);
-           setQuantity(1);
-         }}>
-           В корзину
-         </button> 
-         </div>
+          <button
+            onClick={() => {
+              addToCart(book, quantity);
+              setShowQuantityInput(false);
+              setQuantity(1);
+            }}
+          >
+            В корзину
+          </button>
+        </div>
       ) : (
         <button
           className={`add-to-cart ${isInCart ? 'active' : ''}`}
