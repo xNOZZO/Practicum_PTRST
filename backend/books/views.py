@@ -1,9 +1,16 @@
-from rest_framework import viewsets, permissions, status, filters
-from rest_framework.response import Response
-from rest_framework.decorators import action
-from .models import Book, Author, Genre, Publisher, CartItem, Order, OrderItem
-from .serializers import BookSerializer, AuthorSerializer, GenreSerializer, PublisherSerializer, CartItemSerializer, OrderSerializer
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets, permissions, status, filters
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+from .models import (
+    Book, Author, Genre, Publisher,
+    CartItem, Order, OrderItem
+)
+from .serializers import (
+    BookSerializer, AuthorSerializer, GenreSerializer,
+    PublisherSerializer, CartItemSerializer, OrderSerializer
+)
 
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
@@ -53,6 +60,7 @@ class CartItemViewSet(viewsets.ModelViewSet):
     def checkout(self, request):
         user = request.user
         cart_items = CartItem.objects.filter(user=user)
+            
         if not cart_items.exists():
             return Response({'detail': 'Cart is empty.'}, status=status.HTTP_400_BAD_REQUEST)
 

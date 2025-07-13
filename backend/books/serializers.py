@@ -1,5 +1,10 @@
 from rest_framework import serializers
-from .models import Book, Author, Genre, Publisher,  CartItem, Order, OrderItem
+
+from .models import (
+    Book, Author, Genre,
+    Publisher,  CartItem, Order,
+    OrderItem
+)
 
 class PublisherSerializer(serializers.ModelSerializer):
     class Meta:
